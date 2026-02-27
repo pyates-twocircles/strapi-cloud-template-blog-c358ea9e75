@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ticket_infos",
+  "info": {
+    "singularName": "ticket-info",
+    "pluralName": "ticket-infos",
+    "displayName": "Ticket Info"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "region": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "EMEA",
+        "US"
+      ]
+    },
+    "date_title": {
+      "type": "string"
+    },
+    "date_subtext_1": {
+      "type": "string"
+    },
+    "date_subtext_2": {
+      "type": "string"
+    },
+    "date_cta_label": {
+      "type": "string"
+    },
+    "calendar_title": {
+      "type": "string"
+    },
+    "calendar_start_time": {
+      "type": "datetime"
+    },
+    "calendar_end_time": {
+      "type": "datetime"
+    },
+    "location_title": {
+      "type": "string"
+    },
+    "location_subtext_1": {
+      "type": "string"
+    },
+    "location_subtext_2": {
+      "type": "string"
+    },
+    "location_cta_label": {
+      "type": "string"
+    },
+    "location_query": {
+      "type": "string"
+    },
+    "contact_title": {
+      "type": "string"
+    },
+    "contact_subtext_1": {
+      "type": "string"
+    },
+    "contact_subtext_2": {
+      "type": "string"
+    },
+    "see_more_info_label": {
+      "type": "string"
+    }
+  }
+}

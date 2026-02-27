@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "venue_infos",
+  "info": {
+    "singularName": "venue-info",
+    "pluralName": "venue-infos",
+    "displayName": "Venue Info"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "region": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "EMEA",
+        "US"
+      ]
+    },
+    "address": {
+      "type": "text"
+    },
+    "wifi_name": {
+      "type": "string"
+    },
+    "wifi_password": {
+      "type": "string"
+    },
+    "transport": {
+      "type": "text"
+    },
+    "accessibility": {
+      "type": "text"
+    },
+    "contacts": {
+      "type": "text"
+    }
+  }
+}

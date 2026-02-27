@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "summit_maps",
+  "info": {
+    "singularName": "summit-map",
+    "pluralName": "summit-maps",
+    "displayName": "Summit Map"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "region": {
+      "type": "enumeration",
+      "enum": [
+        "EMEA",
+        "US"
+      ]
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "kind": "collectionType",
+  "collectionName": "summit_sessions",
+  "info": {
+    "singularName": "summit-session",
+    "pluralName": "summit-sessions",
+    "displayName": "Summit Session"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "external_id": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "overview": {
+      "type": "blocks"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "track": {
+      "type": "string"
+    },
+    "start_time": {
+      "type": "datetime",
+      "required": true
+    },
+    "end_time": {
+      "type": "datetime",
+      "required": true
+    },
+    "room": {
+      "type": "string"
+    },
+    "event_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "detail_images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "region": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "EMEA",
+        "US"
+      ]
+    },
+    "content_assets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::content-asset.content-asset",
+      "mappedBy": "summit_session"
+    },
+    "speakers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::speaker.speaker",
+      "mappedBy": "summit_sessions"
+    }
+  }
+}
