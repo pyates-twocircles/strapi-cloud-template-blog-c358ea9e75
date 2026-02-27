@@ -430,46 +430,6 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiContentAssetContentAsset
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'content_assets';
-  info: {
-    displayName: 'Content Asset';
-    pluralName: 'content-assets';
-    singularName: 'content-asset';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    file: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::content-asset.content-asset'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    region: Schema.Attribute.Enumeration<['EMEA', 'US']> &
-      Schema.Attribute.Required;
-    summit_session: Schema.Attribute.Relation<
-      'manyToOne',
-      'api::summit-session.summit-session'
-    >;
-    tags: Schema.Attribute.String;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-    type: Schema.Attribute.Enumeration<['link', 'file', 'video']> &
-      Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    url: Schema.Attribute.String;
-  };
-}
-
 export interface ApiSpeakerSpeaker extends Struct.CollectionTypeSchema {
   collectionName: 'speakers';
   info: {
@@ -559,10 +519,6 @@ export interface ApiSummitSessionSummitSession
     draftAndPublish: true;
   };
   attributes: {
-    content_assets: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::content-asset.content-asset'
-    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1189,7 +1145,6 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::content-asset.content-asset': ApiContentAssetContentAsset;
       'api::speaker.speaker': ApiSpeakerSpeaker;
       'api::summit-map.summit-map': ApiSummitMapSummitMap;
       'api::summit-session.summit-session': ApiSummitSessionSummitSession;

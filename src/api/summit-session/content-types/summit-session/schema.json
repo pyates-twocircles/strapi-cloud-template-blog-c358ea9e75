@@ -68,12 +68,6 @@
         "US"
       ]
     },
-    "content_assets": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::content-asset.content-asset",
-      "mappedBy": "summit_session"
-    },
     "speakers": {
       "type": "relation",
       "relation": "manyToMany",
