@@ -600,6 +600,42 @@ export interface ApiTicketInfoTicketInfo extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiTicketProfileTicketProfile
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'ticket_profiles';
+  info: {
+    displayName: 'Ticket Profile';
+    pluralName: 'ticket-profiles';
+    singularName: 'ticket-profile';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    company: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    external_id: Schema.Attribute.String & Schema.Attribute.Unique;
+    first_name: Schema.Attribute.String;
+    job_title: Schema.Attribute.String;
+    last_name: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::ticket-profile.ticket-profile'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    region: Schema.Attribute.Enumeration<['EMEA', 'US']> &
+      Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiVenueInfoVenueInfo extends Struct.CollectionTypeSchema {
   collectionName: 'venue_infos';
   info: {
@@ -1149,6 +1185,7 @@ declare module '@strapi/strapi' {
       'api::summit-map.summit-map': ApiSummitMapSummitMap;
       'api::summit-session.summit-session': ApiSummitSessionSummitSession;
       'api::ticket-info.ticket-info': ApiTicketInfoTicketInfo;
+      'api::ticket-profile.ticket-profile': ApiTicketProfileTicketProfile;
       'api::venue-info.venue-info': ApiVenueInfoVenueInfo;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

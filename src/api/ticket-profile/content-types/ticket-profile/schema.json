@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ticket_profiles",
+  "info": {
+    "singularName": "ticket-profile",
+    "pluralName": "ticket-profiles",
+    "displayName": "Ticket Profile"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "external_id": {
+      "type": "string",
+      "unique": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "region": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "EMEA",
+        "US"
+      ]
+    },
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "job_title": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    }
+  }
+}
